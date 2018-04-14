@@ -114,7 +114,7 @@ contract three_lottery
             else
             {
                 total += _pick;
-                msg.sender.transfer(buy_in * 3);
+                msg.sender.transfer(buy_in * 6);
                 revealed[msg.sender] = true;
                 valid_participants.push(msg.sender);
                 num_revealed += 1;
