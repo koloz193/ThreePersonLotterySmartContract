@@ -1,1 +1,3 @@
 # ThreePersonLotterySmartContract
+
+This is an Ethereum based smart contract based on a three person lottery. The smart contract offers security by abstracting participant's picks by having them commit to a pick with a hash of their pick concatenated to a nonce so a participant can't change their pick after committing. The contract also penalizes those who decide not to reveal their pick in the allotted amount of time by requiring a hefty security deposit that will either be returned when the participant reveals their pick and in the case that they don't reveal, the security deposit is split amongst the honest parties in an effort to reward them for abiding by the protocol and to cover any fees they incurred from gas spent.
