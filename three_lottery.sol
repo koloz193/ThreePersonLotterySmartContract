@@ -71,6 +71,11 @@ contract three_lottery
         num_revealed = 0;
     }
 
+    function ()
+    {
+      revert();
+    }
+
     function enter_lottery(bytes32 _hash_of_pick)
     public
     payable
@@ -114,10 +119,10 @@ contract three_lottery
             else
             {
                 total += _pick;
-                msg.sender.transfer(buy_in * 6);
                 revealed[msg.sender] = true;
                 valid_participants.push(msg.sender);
                 num_revealed += 1;
+                msg.sender.transfer(buy_in * 6);
             }
         }
     }
