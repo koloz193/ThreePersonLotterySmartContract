@@ -53,12 +53,17 @@ contract three_lottery
       _;
     }
 
-    function sha(uint _n, uint _p)
+    function sha(uint _nonce, uint _pick)
     public
     pure
     returns (bytes32)
     {
-        return sha256(_n, _p);
+        return sha256(_nonce, _pick);
+    }
+
+    function ()
+    {
+      revert();
     }
 
     function three_lottery()
@@ -69,11 +74,6 @@ contract three_lottery
         buy_in = 1;
         total = 0;
         num_revealed = 0;
-    }
-
-    function ()
-    {
-      revert();
     }
 
     function enter_lottery(bytes32 _hash_of_pick)
@@ -118,11 +118,11 @@ contract three_lottery
             }
             else
             {
-                total += _pick;
-                revealed[msg.sender] = true;
-                valid_participants.push(msg.sender);
-                num_revealed += 1;
-                msg.sender.transfer(buy_in * 6);
+              total += _pick;
+              revealed[msg.sender] = true;
+              valid_participants.push(msg.sender);
+              num_revealed += 1;
+              msg.sender.transfer(buy_in * 6);
             }
         }
     }
